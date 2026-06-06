@@ -11,22 +11,27 @@ def download_dataset():
     except ImportError:
       print("Installing gdown")
       subprocess.check_call(
-        [sys.executable, "-m", "pip", "install", "gdown"]
+         [sys.executable, "-m", "pip", "install", "gdown"]
          )
     import gdown
 
-   FILE_ID = "1aRToetVoRX02wVshEMxWLBmnu_HuQm--"
-   OUTPUT = "temp/candidates.jsonl"
+    FILE_ID = "1aRToetVoRX02wVshEMxWLBmnu_HuQm--"
+    OUTPUT = "temp/candidates.jsonl"
 
-   os.makedirs("temp", exist_ok=True)
+    os.makedirs("temp", exist_ok=True)
 
     if not os.path.exists(OUTPUT):
       print("Downloading dataset")
-      gdown.download(
-         f"https://drive.google.com/uc?id={FILE_ID}",
-         OUTPUT,
-         quiet=False
-        )
+     
+      try :
+          gdown.download(
+             f"https://drive.google.com/uc?id={FILE_ID}",
+             OUTPUT,
+             quiet=False
+             )
+      except Exception as e:
+          print(f"Error downloading dataset: {e}")
+               
     else:
      print("Dataset already exists.")
 

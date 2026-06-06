@@ -1,6 +1,6 @@
 import json
 
-def load_candidates(file_path, limit=None):
+def load_candidates(file_path, limit=4):
     
     count = 0;
     
@@ -10,13 +10,13 @@ def load_candidates(file_path, limit=None):
             if limit is not None and count >= limit:
                 break
             
-        try : 
+            try : 
 
             
-            count += 1
-            yield json.loads(line)
+                count += 1
+                yield json.loads(line)
             
-        except json.JSONDecodeError as e:
+            except json.JSONDecodeError as e:
                 print(f"Error decoding JSON on line {count}: {e}")
                 
                 
