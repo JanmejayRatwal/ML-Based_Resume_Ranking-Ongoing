@@ -1004,3 +1004,47 @@ input[type="range"]::-moz-range-thumb {
   .cand-score { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 14px; }
   .score-bar { width: 100%; }
 }
+
+/* ── File status strip ─────────────────────────────────────── */
+.file-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: var(--emerald-soft);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  color: var(--emerald);
+  font-family: var(--font-mono);
+  word-break: break-all;
+}
+.file-status svg { flex-shrink: 0; stroke: var(--emerald); }
+
+/* ── Processing row ────────────────────────────────────────── */
+.processing-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: var(--cyan-soft);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  border-radius: var(--radius-sm);
+}
+
+/* ── Spinner ───────────────────────────────────────────────── */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(34, 211, 238, 0.2);
+  border-top-color: var(--cyan);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

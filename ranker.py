@@ -7,43 +7,45 @@ import heapq
 from batch import create_batches
 from score_computer import score
 
-def process_batch(batch):
-    
+def process_batch(batch, weights=None):
+
     top500 = []
-    
-    for candidate in batch:
-        
-        candidate_score = score(candidate)
-        
+
+    for idx, candidate in enumerate(batch):          # idx = unique tiebreaker
+
+        candidate_score = score(candidate, weights)
+
         if len(top500) < 500:
-            heapq.heappush(top500, (candidate_score, candidate))
+            heapq.heappush(top500, (candidate_score, idx, candidate))
         elif candidate_score > top500[0][0]:
-            heapq.heappushpop(top500, (candidate_score, candidate))
-            
+            heapq.heappushpop(top500, (candidate_score, idx, candidate))
+
     return top500
 
 
-def run_ranking(file_path):
+def run_ranking(file_path, weights=None):
     
     batches = create_batches(file_path, num_batches=4)
     
+    from functools import partial
+    worker = partial(process_batch, weights=weights)
     with Pool(processes=4) as pool:
-        results = pool.map(process_batch, batches)
+        results = pool.map(worker, batches)
     
     
-    return merge_results(results)
+    return merge_results(results, top_n=100)
 
 
 def merge_results(batch_results, top_n=100):
-    
+
     merged = sorted(
-    
         (item for batch in batch_results for item in batch),
         key=lambda x: x[0],
         reverse=True,
     )
-    
-    return merged[:top_n]
+
+    # Strip the tiebreaker index; return (score, candidate) pairs
+    return [(score, candidate) for score, _idx, candidate in merged[:top_n]]
 
 
 

@@ -1,0 +1,81 @@
+2026-06-24 01:51:41,270 [ERROR] Error while processing window.native.bin: unable to get the value
+2026-06-24 01:51:41,270 [ERROR] Error while processing window.native.container: unable to get the value
+2026-06-24 01:51:41,271 [ERROR] Error while processing window.native.parent_instance: unable to get the value
+2026-06-24 01:51:41,272 [ERROR] Error while processing window.native.widget: unable to get the value
+2026-06-24 01:59:42,187 [ERROR] Error while processing window.native.bin: unable to get the value
+2026-06-24 01:59:42,188 [ERROR] Error while processing window.native.container: unable to get the value
+2026-06-24 01:59:42,189 [ERROR] Error while processing window.native.parent_instance: unable to get the value
+2026-06-24 01:59:42,190 [ERROR] Error while processing window.native.widget: unable to get the value
+2026-06-24 01:59:44,652 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 01:59:44,652 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 01:59:44,734 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 01:59:47,069 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 01:59:47,084 [INFO] Ranking started — /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/sample_candidates.json
+2026-06-24 01:59:47,139 [INFO] Done — buffer 50, saved to /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/output/top100_20260624_015947.csv
+2026-06-24 01:59:47,154 [INFO] Honeypots removed: 23 → 27 clean candidates
+2026-06-24 01:59:48,856 [INFO] Ranking started — /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/sample_candidates.json
+2026-06-24 01:59:48,892 [INFO] Done — buffer 50, saved to /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/output/top100_20260624_015948.csv
+2026-06-24 01:59:48,903 [INFO] Honeypots removed: 23 → 27 clean candidates
+2026-06-24 02:00:03,718 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 02:00:03,718 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 02:00:03,750 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 02:00:12,606 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 02:00:12,617 [INFO] Ranking started — /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/temp/candidates.jsonl
+2026-06-24 02:00:19,157 [INFO] Ranking started — /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/temp/candidates.jsonl
+2026-06-24 02:00:20,572 [INFO] Ranking started — /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/temp/candidates.jsonl
+2026-06-24 02:00:23,931 [INFO] Ranking started — /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/temp/candidates.jsonl
+2026-06-24 02:00:27,315 [INFO] Done — buffer 200, saved to /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/output/top100_20260624_020027.csv
+2026-06-24 02:00:27,353 [INFO] Honeypots removed: 18 → 100 clean candidates
+2026-06-24 02:00:40,272 [INFO] Ranking started — /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/temp/candidates.jsonl
+2026-06-24 02:00:45,875 [INFO] Ranking started — /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/temp/candidates.jsonl
+2026-06-24 02:00:51,182 [INFO] Done — buffer 200, saved to /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/output/top100_20260624_020051.csv
+2026-06-24 02:00:51,219 [INFO] Honeypots removed: 18 → 100 clean candidates
+2026-06-24 02:00:57,893 [INFO] Done — buffer 200, saved to /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/output/top100_20260624_020057.csv
+2026-06-24 02:00:57,936 [INFO] Honeypots removed: 18 → 100 clean candidates
+2026-06-24 02:01:11,079 [INFO] Done — buffer 200, saved to /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/output/top100_20260624_020111.csv
+2026-06-24 02:01:11,127 [INFO] Honeypots removed: 18 → 100 clean candidates
+2026-06-24 02:01:20,747 [ERROR] Error while processing window.native.bin: unable to get the value
+2026-06-24 02:01:20,748 [ERROR] Error while processing window.native.container: unable to get the value
+2026-06-24 02:01:20,749 [ERROR] Error while processing window.native.parent_instance: unable to get the value
+2026-06-24 02:01:20,749 [ERROR] Error while processing window.native.widget: unable to get the value
+2026-06-24 02:01:22,394 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 02:01:22,394 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 02:01:22,468 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 02:01:24,999 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 02:01:25,012 [INFO] Ranking started — /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/sample_candidates.json
+2026-06-24 02:01:25,072 [INFO] Done — buffer 50, saved to /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/output/top100_20260624_020125.csv
+2026-06-24 02:01:25,089 [INFO] Honeypots removed: 23 → 27 clean candidates
+2026-06-24 02:01:28,291 [INFO] Ranking started — /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/sample_candidates.json
+2026-06-24 02:01:28,342 [INFO] Done — buffer 50, saved to /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/output/top100_20260624_020128.csv
+2026-06-24 02:01:28,356 [INFO] Honeypots removed: 23 → 27 clean candidates
+2026-06-24 02:01:39,505 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 02:01:39,505 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 02:01:39,539 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 02:01:43,795 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 02:01:43,807 [INFO] Ranking started — /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/temp/candidates.jsonl
+2026-06-24 02:01:58,192 [INFO] Done — buffer 200, saved to /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/output/top100_20260624_020158.csv
+2026-06-24 02:01:58,228 [INFO] Honeypots removed: 18 → 100 clean candidates
+2026-06-24 02:02:01,412 [INFO] Ranking started — /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/temp/candidates.jsonl
+2026-06-24 02:02:14,996 [INFO] Done — buffer 200, saved to /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/output/top100_20260624_020214.csv
+2026-06-24 02:02:15,032 [INFO] Honeypots removed: 18 → 100 clean candidates
+2026-06-24 02:02:17,976 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 02:02:17,977 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 02:02:17,999 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 02:02:20,789 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 02:02:20,801 [INFO] Ranking started — /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/sample_candidates.json
+2026-06-24 02:02:20,928 [INFO] Done — buffer 50, saved to /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/output/top100_20260624_020220.csv
+2026-06-24 02:02:20,941 [INFO] Honeypots removed: 23 → 27 clean candidates
+2026-06-24 02:02:24,131 [INFO] Ranking started — /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/sample_candidates.json
+2026-06-24 02:02:24,247 [INFO] Done — buffer 50, saved to /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/output/top100_20260624_020224.csv
+2026-06-24 02:02:24,258 [INFO] Honeypots removed: 23 → 27 clean candidates
+2026-06-24 02:02:25,440 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 02:02:25,440 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 02:02:25,473 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 02:02:36,336 [WARNING] OPEN_DIALOG is deprecated and will be removed in a future version. Use 'FileDialog.OPEN' instead.
+2026-06-24 02:02:36,350 [INFO] Ranking started — /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/temp/candidates.jsonl
+2026-06-24 02:02:50,480 [INFO] Done — buffer 200, saved to /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/output/top100_20260624_020250.csv
+2026-06-24 02:02:50,516 [INFO] Honeypots removed: 18 → 100 clean candidates
+2026-06-24 02:03:50,037 [ERROR] Error while processing window.native.bin: unable to get the value
+2026-06-24 02:03:50,037 [ERROR] Error while processing window.native.container: unable to get the value
+2026-06-24 02:03:50,038 [ERROR] Error while processing window.native.parent_instance: unable to get the value
+2026-06-24 02:03:50,038 [ERROR] Error while processing window.native.widget: unable to get the value

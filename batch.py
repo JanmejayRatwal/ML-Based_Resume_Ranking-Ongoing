@@ -4,7 +4,7 @@ from candidate_loader import load_candidates
 
 def create_batches(file_path, num_batches = 4):
     
-    candidates = list(load_candidates(file_path))
+    candidates = list(load_candidates(file_path, limit=None))
     batch_size = len(candidates) // num_batches
     
     batches = []

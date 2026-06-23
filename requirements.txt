@@ -1,0 +1,8 @@
+# requirements.txt — TalentRank AI
+#
+# Install with:  pip install -r requirements.txt
+#
+# All other imports (csv, json, logging, os, threading, heapq,
+# multiprocessing, datetime) are Python standard library modules.
+
+pywebview==6.2.1

@@ -1,6 +1,6 @@
 import json
 
-def load_candidates(file_path, limit=4):
+def load_candidates(file_path, limit=None):
     
     count = 0;
     

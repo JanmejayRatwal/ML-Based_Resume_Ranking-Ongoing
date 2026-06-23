@@ -1,0 +1,101 @@
+rank,candidate_id,score,name,location,years_exp
+1,CAND_0091534,0.5000,Dhruv Dutta,"Gurgaon, Haryana",16.6
+2,CAND_0039754,0.4700,Mira Banerjee,"Indore, Madhya Pradesh",16.2
+3,CAND_0071115,0.4700,Tanya Shah,"Ahmedabad, Gujarat",16.5
+4,CAND_0038431,0.4400,Tanvi Iyer,"Mumbai, Maharashtra",15.0
+5,CAND_0037980,0.4385,Reyansh Chowdary,"Kolkata, West Bengal",9.0
+6,CAND_0094759,0.4365,Aditya Pillai,"Mumbai, Maharashtra",8.6
+7,CAND_0068811,0.4333,Krishna Mittal,"Pune, Maharashtra",8.0
+8,CAND_0061257,0.4333,Advaith Pillai,"Noida, Uttar Pradesh",8.0
+9,CAND_0007009,0.4328,Anika Pillai,"Noida, Uttar Pradesh",7.9
+10,CAND_0006567,0.4328,Aditya Subramanian,"Noida, Uttar Pradesh",7.9
+11,CAND_0093193,0.4328,Aarohi Bose,"Bangalore, Karnataka",7.9
+12,CAND_0008425,0.4322,Myra Krishnan,"Kolkata, West Bengal",7.8
+13,CAND_0011432,0.4310,Deepak Trivedi,"Chennai, Tamil Nadu",7.6
+14,CAND_0064326,0.4310,Nisha Pillai,"Gurgaon, Haryana",7.6
+15,CAND_0007412,0.4298,Pranav Shah,"Noida, Uttar Pradesh",7.4
+16,CAND_0005649,0.4298,Riya Kapoor,"Delhi, Delhi",7.4
+17,CAND_0027801,0.4298,Anil Mittal,"Hyderabad, Telangana",7.4
+18,CAND_0018499,0.4286,Aarav Trivedi,"Noida, Uttar Pradesh",7.2
+19,CAND_0037566,0.4266,Ritu Nair,"Bangalore, Karnataka",6.9
+20,CAND_0091909,0.4266,Pooja Tiwari,"Bangalore, Karnataka",6.9
+21,CAND_0050454,0.4259,Saanvi Bansal,"Delhi, Delhi",6.8
+22,CAND_0092278,0.4259,Ananya Arora,"Pune, Maharashtra",6.8
+23,CAND_0016163,0.4252,Suresh Shah,"Gurgaon, Haryana",6.7
+24,CAND_0010685,0.4252,Sunil Mishra,"Kolkata, West Bengal",6.7
+25,CAND_0010257,0.4238,Ira Shetty,"Noida, Uttar Pradesh",6.5
+26,CAND_0027691,0.4238,Ayaan Goyal,"Pune, Maharashtra",6.5
+27,CAND_0052328,0.4238,Vikram Banerjee,"Pune, Maharashtra",6.5
+28,CAND_0068351,0.4231,Aadhya Iyer,"Delhi, Delhi",6.4
+29,CAND_0046525,0.4208,Tanvi Mukherjee,"Pune, Maharashtra",6.1
+30,CAND_0000031,0.4200,Ela Singh,"Hyderabad, Telangana",6.0
+31,CAND_0089552,0.4200,Suresh Dutta,"Kolkata, West Bengal",6.0
+32,CAND_0005538,0.4192,Aryan Goyal,"Kolkata, West Bengal",5.9
+33,CAND_0066999,0.4192,Riya Dalal,"Delhi, Delhi",5.9
+34,CAND_0094056,0.4192,Diya Pillai,"Chennai, Tamil Nadu",5.9
+35,CAND_0058575,0.4184,Suresh Dutta,"Chennai, Tamil Nadu",5.8
+36,CAND_0066376,0.4175,Amit Goyal,"Mumbai, Maharashtra",5.7
+37,CAND_0086022,0.4140,Dhruv Naidu,"Kolkata, West Bengal",5.3
+38,CAND_0005260,0.4130,Mira Ghosh,"Chennai, Tamil Nadu",5.2
+39,CAND_0009024,0.4130,Avni Sharma,"Chennai, Tamil Nadu",5.2
+40,CAND_0065195,0.4121,Kiara Mukherjee,"Kolkata, West Bengal",5.1
+41,CAND_0064904,0.4101,Karan Trivedi,"Hyderabad, Telangana",4.9
+42,CAND_0079284,0.4101,Ishaan Dutta,"Hyderabad, Telangana",4.9
+43,CAND_0055992,0.4100,Deepak Bansal,Sydney,16.9
+44,CAND_0007460,0.4080,Anika Sethi,"Pune, Maharashtra",4.7
+45,CAND_0054123,0.4080,Tanvi Banerjee,"Gurgaon, Haryana",4.7
+46,CAND_0046064,0.4080,Saanvi Naidu,"Coimbatore, Tamil Nadu",8.9
+47,CAND_0080766,0.4075,Kiara Mittal,"Coimbatore, Tamil Nadu",8.8
+48,CAND_0003977,0.4070,Anjali Patel,"Delhi, Delhi",4.6
+49,CAND_0055905,0.4039,Anika Rao,London,8.1
+50,CAND_0007411,0.4033,Rahul Bansal,"Kochi, Kerala",8.0
+51,CAND_0006557,0.4028,Divya Goyal,"Jaipur, Rajasthan",7.9
+52,CAND_0064270,0.4024,Anil Rao,"Pune, Maharashtra",4.2
+53,CAND_0065878,0.4022,Suresh Kapoor,"Trivandrum, Kerala",7.8
+54,CAND_0071974,0.4022,Sai Verma,"Vizag, Andhra Pradesh",7.8
+55,CAND_0083307,0.4022,Neha Patel,"Vizag, Andhra Pradesh",7.8
+56,CAND_0086151,0.4016,Ayaan Tiwari,"Vizag, Andhra Pradesh",7.7
+57,CAND_0099401,0.4016,Kabir Sen,"Ahmedabad, Gujarat",7.7
+58,CAND_0054394,0.4012,Ela Iyengar,"Pune, Maharashtra",4.1
+59,CAND_0076251,0.4010,Atharv Pandey,"Bhubaneswar, Odisha",7.6
+60,CAND_0098846,0.4010,Shreya Saxena,"Indore, Madhya Pradesh",7.6
+61,CAND_0042100,0.3992,Siya Trivedi,Singapore,7.3
+62,CAND_0062247,0.3992,Saanvi Trivedi,"Kochi, Kerala",7.3
+63,CAND_0028793,0.3986,Myra Dutta,"Trivandrum, Kerala",7.2
+64,CAND_0070398,0.3986,Riya Saxena,"Kochi, Kerala",7.2
+65,CAND_0072660,0.3979,Aarohi Sen,Berlin,7.1
+66,CAND_0047721,0.3973,Om Verma,"Coimbatore, Tamil Nadu",7.0
+67,CAND_0079387,0.3966,Sneha Arora,"Trivandrum, Kerala",6.9
+68,CAND_0018549,0.3959,Mira Verma,"Coimbatore, Tamil Nadu",6.8
+69,CAND_0058688,0.3952,Anjali Kapoor,Berlin,6.7
+70,CAND_0044855,0.3945,Kavya Joshi,"Coimbatore, Tamil Nadu",6.6
+71,CAND_0052682,0.3945,Ira Mukherjee,"Vizag, Andhra Pradesh",6.6
+72,CAND_0040117,0.3938,Aisha Sen,"Vizag, Andhra Pradesh",6.5
+73,CAND_0060054,0.3931,Aisha Kapoor,"Jaipur, Rajasthan",6.4
+74,CAND_0003344,0.3929,Saanvi Mukherjee,"Delhi, Delhi",10.0
+75,CAND_0041204,0.3929,Rahul Singh,"Gurgaon, Haryana",10.0
+76,CAND_0033384,0.3929,Naina Sen,"Chennai, Tamil Nadu",10.0
+77,CAND_0032074,0.3929,Sunil Malhotra,"Delhi, Delhi",10.0
+78,CAND_0045275,0.3929,Ishaan Mukherjee,"Pune, Maharashtra",10.0
+79,CAND_0036277,0.3929,Karan Krishnan,"Kolkata, West Bengal",10.0
+80,CAND_0036959,0.3929,Pranav Hegde,"Pune, Maharashtra",10.0
+81,CAND_0033557,0.3929,Pooja Mukherjee,"Bangalore, Karnataka",10.0
+82,CAND_0046205,0.3929,Karan Dalal,"Gurgaon, Haryana",10.0
+83,CAND_0031394,0.3929,Tanya Iyengar,"Chennai, Tamil Nadu",10.0
+84,CAND_0071194,0.3929,Tanvi Shah,"Noida, Uttar Pradesh",10.0
+85,CAND_0064119,0.3929,Aditya Sharma,"Mumbai, Maharashtra",10.0
+86,CAND_0071746,0.3929,Om Dutta,"Kolkata, West Bengal",10.0
+87,CAND_0059619,0.3929,Ritu Mittal,"Mumbai, Maharashtra",10.0
+88,CAND_0053765,0.3929,Arnav Pillai,"Mumbai, Maharashtra",10.0
+89,CAND_0061427,0.3929,Rajesh Desai,"Chennai, Tamil Nadu",10.0
+90,CAND_0070339,0.3929,Aditya Banerjee,"Pune, Maharashtra",10.0
+91,CAND_0072331,0.3929,Vihaan Patel,"Hyderabad, Telangana",10.0
+92,CAND_0062218,0.3929,Om Sethi,"Gurgaon, Haryana",10.0
+93,CAND_0080454,0.3929,Kabir Subramanian,"Pune, Maharashtra",10.0
+94,CAND_0080018,0.3929,Rajesh Sharma,"Bangalore, Karnataka",10.0
+95,CAND_0087495,0.3929,Divya Khanna,"Pune, Maharashtra",10.0
+96,CAND_0092323,0.3929,Manish Patel,"Noida, Uttar Pradesh",10.0
+97,CAND_0082901,0.3929,Pari Naidu,"Bangalore, Karnataka",10.0
+98,CAND_0024095,0.3924,Aryan Krishnan,"Kolkata, West Bengal",9.9
+99,CAND_0009896,0.3924,Sanjay Nair,"Mumbai, Maharashtra",9.9
+100,CAND_0021802,0.3924,Reyansh Nair,"Delhi, Delhi",9.9
