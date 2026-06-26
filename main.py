@@ -1,6 +1,8 @@
-# Not to be used yet, it's for final implementation,
-# Used Ai for creation
+# main.py — Flask server replacing the pywebview JS bridge
+# Runs Flask on localhost:5000; pywebview opens index.html pointing at it.
+# File dialog uses tkinter (works independently of the JS bridge).
 
+import tempfile
 import os
 import sys
 import json
@@ -12,35 +14,62 @@ from pathlib import Path
 from functools import partial
 from multiprocessing import Pool
 
+import tkinter as tk
+from tkinter import filedialog
+
 import webview
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+
 from batch import create_batches
 from ranker import process_batch, merge_results
 from output_writer import write_output
 from honeypot_filter import detect_honeypots, is_honeypot
+from rule_based_judge import generate_explanations
 
 # ── Paths ────────────────────────────────────────────────────────────────────
-BASE_DIR    = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent
 SAMPLE_FILE = str(BASE_DIR / "sample_candidates.json")
-FULL_FILE   = str(BASE_DIR / "candidates.jsonl")
-OUTPUT_DIR  = BASE_DIR / "output"
+FULL_FILE = str(BASE_DIR / "candidates.jsonl")
+OUTPUT_DIR = BASE_DIR / "output"
 
 # ── Logging ───────────────────────────────────────────────────────────────────
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        logging.FileHandler(os.path.join(os.path.dirname(__file__), "log", "candidateranker.log")),
+        logging.FileHandler(os.path.join(os.path.dirname(
+            __file__), "log", "candidateranker.log")),
         logging.StreamHandler(),
     ],
 )
 logger = logging.getLogger(__name__)
 
 
-# ── Helper: load a .json array or .jsonl file into a temp JSONL ───────────────
-import tempfile
+# ── Flask app ─────────────────────────────────────────────────────────────────
+app = Flask(
+    __name__,
+    static_folder=".",
+    static_url_path=""
+)
+CORS(app)  # allow the webview origin to call localhost:5000
+
+
+@app.route("/")
+def index():
+    return app.send_static_file("index.html")
+
+
+# Module-level state (single-user desktop app — no session needed)
+_state = {
+    "last_csv":  "",
+    "last_file": "",
+}
+
+
+# ── Helper: normalise .json array or .jsonl to a temp JSONL file ──────────────
 
 def _to_jsonl(src_path):
-    """Converts a JSON array file or JSONL file into a temp JSONL file."""
     src = Path(src_path)
     tmp = tempfile.NamedTemporaryFile(mode="w", suffix=".jsonl",
                                       delete=False, encoding="utf-8")
@@ -51,7 +80,7 @@ def _to_jsonl(src_path):
             candidates = candidates.get("candidates", [])
         for c in candidates:
             tmp.write(json.dumps(c) + "\n")
-    else:                               # already JSONL
+    else:
         with open(src, encoding="utf-8") as f:
             for line in f:
                 line = line.strip()
@@ -61,155 +90,170 @@ def _to_jsonl(src_path):
     return tmp.name
 
 
-class API:
+# ── Flask routes ──────────────────────────────────────────────────────────────
 
-    def __init__(self):
-        self.window     = None
-        self._last_csv  = ""
-        self._last_file = ""
+@app.route("/api/open_file_dialog", methods=["POST"])
+def open_file_dialog():
+    """Open a native tkinter file-picker and return the chosen path."""
+    root = tk.Tk()
+    root.withdraw()
+    root.attributes("-topmost", True)
+    path = filedialog.askopenfilename(
+        title="Select candidate file",
+        filetypes=[("JSON / JSONL files", "*.json *.jsonl")],
+    )
+    root.destroy()
+    if path:
+        _state["last_file"] = path
+        return jsonify({"path": path})
+    return jsonify({"path": None})
 
-    def set_window(self, w):
-        self.window = w
 
-    # ── Called by app.js: load a preset and rank it ───────────────────────────
-    def load_preset(self, preset: str):
-        """preset = 'sample'  or  '100k'"""
-        self._last_file = SAMPLE_FILE if preset == "sample" else FULL_FILE
-        self.start_ranking(self._last_file)
+@app.route("/api/upload_file", methods=["POST"])
+def upload_file():
+    """Accept a drag-and-dropped file, save it to a temp location, return its path."""
+    f = request.files.get("file")
+    if not f:
+        return jsonify({"status": "error", "message": "No file received"}), 400
+    suffix = Path(f.filename).suffix or ".jsonl"
+    tmp = tempfile.NamedTemporaryFile(delete=False, suffix=suffix)
+    f.save(tmp.name)
+    tmp.close()
+    _state["last_file"] = tmp.name
+    return jsonify({"path": tmp.name})
 
-    # ── Called by app.js: open a native file-picker dialog ────────────────────
-    def open_file_dialog(self):
-        result = self.window.create_file_dialog(
-            webview.OPEN_DIALOG,
-            allow_multiple=False,
-            file_types=("JSON JSONL files (*.json;*.jsonl)",),
-        )
-        if result:
-            self._last_file = result[0]
-            return result[0]
-        return None
 
-    # ── Called by app.js: rank the loaded file ────────────────────────────────
-    def start_ranking(self, file_path: str = "",
-                      weights_json: str = "{}", filters_json: str = "{}"):
-        path    = file_path or self._last_file
-        weights = json.loads(weights_json) if weights_json else {}
-        filters = json.loads(filters_json) if filters_json else {}
+@app.route("/api/start_ranking", methods=["POST"])
+def start_ranking():
+    """Rank the given file and return results synchronously (runs in Flask worker thread)."""
+    body = request.get_json(force=True) or {}
+    file_path = body.get("file_path") or _state["last_file"]
+    weights = body.get("weights") or {}
+    filters = body.get("filters") or {}
 
-        if not path:
-            self._send_error("No file selected.")
-            return
+    if not file_path:
+        return jsonify({"status": "error", "message": "No file selected."}), 400
 
-        # Run the ranking in the background so the UI doesn't freeze
-        thread = threading.Thread(
-            target=self._run_ranking,
-            args=(path, weights, filters),
-            daemon=True,
-        )
-        thread.start()
+    _state["last_file"] = file_path
 
-    # ── Called by app.js: open the last exported CSV ──────────────────────────
-    def open_csv(self):
-        if not self._last_csv or not os.path.exists(self._last_csv):
-            self._send_error("No CSV available yet.")
-            return
-        try:
-            if sys.platform == "win32":
-                os.startfile(self._last_csv)
-            elif sys.platform == "darwin":
-                subprocess.Popen(["open", self._last_csv])
-            else:
-                subprocess.Popen(["xdg-open", self._last_csv])
-        except Exception as e:
-            self._send_error(f"Could not open CSV: {e}")
+    try:
+        result = _run_ranking(file_path, weights, filters)
+        return jsonify(result)
+    except Exception as e:
+        logger.error("Ranking failed: %s", e, exc_info=True)
+        return jsonify({"status": "error", "message": str(e)}), 500
 
-    # ── Internal: full ranking pipeline (runs in a background thread) ─────────
-    def _run_ranking(self, file_path, weights, filters):
-        tmp_path = None
-        try:
-            logger.info("Ranking started — %s", file_path)
 
-            # Step 1: normalise to JSONL so create_batches() can read it
-            tmp_path = _to_jsonl(file_path)
+@app.route("/api/open_csv", methods=["POST"])
+def open_csv():
+    """Open the last exported CSV in the system default application."""
+    path = _state["last_csv"]
+    if not path or not os.path.exists(path):
+        return jsonify({"status": "error", "message": "No CSV available yet."}), 404
+    try:
+        if sys.platform == "win32":
+            os.startfile(path)
+        elif sys.platform == "darwin":
+            subprocess.Popen(["open", path])
+        else:
+            subprocess.Popen(["xdg-open", path])
+        return jsonify({"status": "ok"})
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 
-            # Step 2: batch → parallel score → merge (fetch extra buffer for honeypot removal)
-            batches = create_batches(tmp_path, num_batches=4)
-            worker  = partial(process_batch, weights=weights)
-            with Pool(processes=4) as pool:
-                results = pool.map(worker, batches)
-            top_buffer = merge_results(results, top_n=200)   # fetch 2× to absorb honeypots
 
-            # Step 3: save CSV
-            OUTPUT_DIR.mkdir(exist_ok=True)
-            from datetime import datetime
-            csv_path = str(OUTPUT_DIR / f"top100_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv")
-            write_output(top_buffer[:100], csv_path)
-            self._last_csv = csv_path
-            logger.info("Done — buffer %d, saved to %s", len(top_buffer), csv_path)
+# ── Core ranking pipeline ─────────────────────────────────────────────────────
 
-            # Step 4: always strip honeypots; keep exactly 100 clean candidates
-            honeypot_count = sum(1 for _, c in top_buffer if is_honeypot(c))
-            top100_clean   = [(s, c) for s, c in top_buffer if not is_honeypot(c)][:100]
-            logger.info("Honeypots removed: %d → %d clean candidates", honeypot_count, len(top100_clean))
+def _run_ranking(file_path, weights, filters):
+    tmp_path = None
+    try:
+        logger.info("Ranking started — %s", file_path)
 
-            # Step 5: build result records and send back to JS
-            ranked = []
-            for score_val, candidate in top100_clean:
-                profile = candidate.get("profile", {}) or {}
-                ranked.append({
-                    "candidate":       candidate,
-                    "score":           round(float(score_val), 4),
-                    "breakdown":       {"badges": [], "matched_skills": []},
-                    "reason":          f"{profile.get('anonymized_name','Candidate')} scored {score_val:.2f}.",
-                    "honeypotReasons": [],
-                })
+        # Step 1: normalise to JSONL
+        tmp_path = _to_jsonl(file_path)
 
-            stats = {
-                "total":    len(top_buffer),
-                "honeypots": honeypot_count,
-                "topFit":   sum(1 for r in ranked if r["score"] >= 0.65),
-                "avgScore": round(sum(r["score"] for r in ranked) / len(ranked), 4) if ranked else 0,
-            }
-            self._send_results(ranked, stats)
+        # Step 2: batch → parallel score → merge (2× buffer for honeypot removal)
+        batches = create_batches(tmp_path, num_batches=4)
+        worker = partial(process_batch, weights=weights)
+        with Pool(processes=4) as pool:
+            results = pool.map(worker, batches)
+        top_buffer = merge_results(results, top_n=200)
 
-        except Exception as e:
-            logger.error("Ranking failed: %s", e, exc_info=True)
-            self._send_error(str(e))
-        finally:
-            if tmp_path and os.path.exists(tmp_path):
-                os.unlink(tmp_path)
+        # Step 3: strip honeypots; keep exactly 100 clean candidates
+        honeypot_count = sum(1 for _, c in top_buffer if is_honeypot(c))
+        top100_clean = [(s, c)
+                        for s, c in top_buffer if not is_honeypot(c)][:100]
+        logger.info("Honeypots removed: %d → %d clean candidates",
+                    honeypot_count, len(top100_clean))
 
-    # ── Internal: push results / errors to JS ────────────────────────────────
-    def _send_results(self, ranked, stats):
-        payload = json.dumps({
+        # Step 4: generate reasons for top 100
+        logger.info("Generating reasons for %d candidates...",
+                    len(top100_clean))
+        reasons_data = generate_explanations(top100_clean)
+        logger.info("Reasons generated successfully")
+
+        # Step 5: save CSV
+        OUTPUT_DIR.mkdir(exist_ok=True)
+        from datetime import datetime
+        csv_path = str(
+            OUTPUT_DIR / f"top100_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv")
+        reasons_only = [reason for reason, _ in reasons_data]
+        write_output(top100_clean, csv_path, reasons_only)
+        _state["last_csv"] = csv_path
+        logger.info("Saved top 100 to %s", csv_path)
+
+        # Step 6: build ranked payload
+        ranked = []
+        for idx, (score_val, candidate) in enumerate(top100_clean):
+            reason, breakdown = reasons_data[idx] if idx < len(
+                reasons_data) else ("Strong candidate profile.", {})
+            ranked.append({
+                "candidate":       candidate,
+                "score":           round(float(score_val), 4),
+                "breakdown":       breakdown,
+                "reason":          reason,
+                "honeypotReasons": [],
+            })
+
+        stats = {
+            "total":    len(top_buffer),
+            "honeypots": honeypot_count,
+            "topFit":   sum(1 for r in ranked if r["score"] >= 0.65),
+            "avgScore": round(sum(r["score"] for r in ranked) / len(ranked), 4) if ranked else 0,
+        }
+
+        return {
             "status": "ok",
             "ranked": ranked,
             "count":  len(ranked),
             "stats":  stats,
-        })
-        if self.window:
-            # Double-encode: json.dumps(payload) makes it a JS string literal
-            # so app.js receives a string it can correctly JSON.parse()
-            self.window.evaluate_js(f"window.onResults({json.dumps(payload)});")
+        }
 
-    def _send_error(self, message):
-        payload = json.dumps({"status": "error", "message": message})
-        if self.window:
-            self.window.evaluate_js(f"window.onResults({json.dumps(payload)});")
+    finally:
+        if tmp_path and os.path.exists(tmp_path):
+            os.unlink(tmp_path)
 
 
-# Only run the app when this file is executed directly.
-# This guard also prevents worker processes from accidentally
-# opening extra windows when running on Windows/macOS.
+# ── Entry point ───────────────────────────────────────────────────────────────
+
+def _start_flask():
+    """Run Flask in a background daemon thread."""
+    app.run(host="127.0.0.1", port=5000, debug=False, use_reloader=False)
+
+
 if __name__ == "__main__":
-    api    = API()
+    # Start Flask server in the background
+    flask_thread = threading.Thread(target=_start_flask, daemon=True)
+    flask_thread.start()
+    logger.info("Flask server started on http://127.0.0.1:5000")
+
+    # Open pywebview window pointing at the Flask-served page.
+    # No js_api needed — the browser talks to Flask directly via fetch().
     window = webview.create_window(
-        "CandidateRanker ", "index.html",
-        js_api=api,
+        "CandidateRanker",
+        "http://127.0.0.1:5000/",   # serve index.html from Flask, or keep "index.html"
         width=1280, height=820, min_size=(900, 600),
     )
-    api.set_window(window)
 
-    # webview.start() must run on the main thread (PyWebView requirement).
-    # All heavy work (ranking, file loading) runs on background daemon threads inside the API.
-    webview.start()
+    # webview.start() must run on the main thread
+    webview.start(debug=True)

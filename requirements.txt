@@ -6,3 +6,5 @@
 # multiprocessing, datetime) are Python standard library modules.
 
 pywebview==6.2.1
+flask
+flask_cors 

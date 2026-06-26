@@ -1,2 +1,9 @@
 candidates.jsonl
 temp/ 
+__pycache__/
+.venv/
+.venv3.13/
+.vscode/
+scripts/
+test/
+test

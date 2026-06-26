@@ -1,17 +1,18 @@
 /* ============================================================
-   app.js — UI ↔ Python Bridge
-   Wires every control in index.html to window.pywebview.api
-   and renders results returned by Python.
+   app.js — UI ↔ Flask Bridge
+   All window.pywebview.api calls replaced with fetch('/api/...')
+   calls to the Flask server running on localhost.
    No scoring, no calculations — all logic lives in Python.
    ============================================================ */
 
 // ---------- State ----------
 
 const state = {
-  filePath: null,       // path to the currently selected file (set by Python)
-  results:  [],         // ranked list returned by Python
+  filePath: null,       // path to the currently selected file (returned by Flask)
+  results:  [],         // ranked list returned by Flask
 };
 
+const FLASK_BASE = "http://127.0.0.1:5000";
 
 const BADGE_NAMES = {
   "active-gh":  "Active GitHub",
@@ -56,33 +57,40 @@ function toast(msg, type = "success") {
   setTimeout(() => { t.style.opacity = "0"; setTimeout(() => t.remove(), 250); }, 3000);
 }
 
-// ---------- Call Python ----------
+// ---------- Flask API helpers ----------
 
-function api() {
-  return window.pywebview && window.pywebview.api;
+async function callFlask(endpoint, options = {}) {
+  try {
+    const res = await fetch(`${FLASK_BASE}${endpoint}`, {
+      headers: { "Content-Type": "application/json" },
+      ...options,
+    });
+    return await res.json();
+  } catch (e) {
+    toast("Flask server not reachable", "error");
+    return null;
+  }
 }
 
-function callPython(methodName, ...args) {
-  const a = api();
-  if (!a) { toast("Python bridge not ready", "error"); return; }
-  return a[methodName](...args);
-}
-
-// Send current file to Python to rank
-function triggerRanking() {
+// Send current file path to Flask to rank
+async function triggerRanking() {
   if (!state.filePath) return;
   showProcessing(true);
-  callPython("start_ranking", state.filePath, "{}", "{}");
+  const data = await callFlask("/api/start_ranking", {
+    method: "POST",
+    body: JSON.stringify({ file_path: state.filePath, weights: {}, filters: {} }),
+  });
+  if (data) handleResults(data);
 }
 
 // ── File status / spinner helpers ────────────────────────────
 function showFileStatus(filePath) {
   const name = filePath ? filePath.split(/[\/\\]/).pop() : "";
-  const el   = $("#file-status");
+  const elem  = $("#file-status");
   const lbl  = $("#file-name-label");
-  if (el && lbl) {
+  if (elem && lbl) {
     lbl.textContent = name || filePath;
-    el.style.display = "flex";
+    elem.style.display = "flex";
   }
 }
 
@@ -98,14 +106,11 @@ function debouncedRank(ms = 250) {
   _searchTimer = setTimeout(triggerRanking, ms);
 }
 
-// ---------- Callback from Python ----------
-// Python calls window.onResults(jsonString) when ranking is complete.
+// ---------- Handle results from Flask ----------
+// Used both for direct fetch responses and (optionally) SSE push.
 
-window.onResults = function (jsonStr) {
+function handleResults(data) {
   showProcessing(false);
-  let data;
-  try { data = JSON.parse(jsonStr); }
-  catch (e) { toast("Invalid data from Python", "error"); return; }
 
   if (data.status === "error") {
     toast("Error: " + data.message, "error");
@@ -116,18 +121,26 @@ window.onResults = function (jsonStr) {
   renderStats(data.stats);
   renderResults();
   toast(`Ranked ${data.count} candidates`);
-};
+}
 
 // ---------- Stats bar ----------
 
 function renderStats(stats) {
   if (!stats) return;
-  $("#stat-total").textContent    = stats.total    ?? 0;
-  $("#stat-filtered").textContent = stats.honeypots ?? 0;
-  $("#stat-top").textContent      = stats.topFit   ?? 0;
-  $("#stat-avg").textContent      = fmt(stats.avgScore, 2);
-  $("#result-count").textContent  = `${state.results.length} results`;
-  $("#top-score-badge").textContent = state.results.length
+
+  const statTotal     = $("#stat-total");
+  const statFiltered  = $("#stat-filtered");
+  const statTop       = $("#stat-top");
+  const statAvg       = $("#stat-avg");
+  const resultCount   = $("#result-count");
+  const topScoreBadge = $("#top-score-badge");
+
+  if (statTotal)     statTotal.textContent     = stats.total ?? 0;
+  if (statFiltered)  statFiltered.textContent  = stats.honeypots ?? 0;
+  if (statTop)       statTop.textContent       = stats.topFit ?? 0;
+  if (statAvg)       statAvg.textContent       = fmt(stats.avgScore, 2);
+  if (resultCount)   resultCount.textContent   = `${state.results.length} results`;
+  if (topScoreBadge) topScoreBadge.textContent = state.results.length
     ? `Top: ${state.results[0].score.toFixed(3)}`
     : "Top: 0.000";
 }
@@ -325,66 +338,94 @@ function closeModal() {
   $("#modal-backdrop").classList.remove("open");
 }
 
-
-
 // ---------- Initialise ----------
 
 function init() {
   renderResults();
 
   // Modal close
-  $("#modal-close").addEventListener("click", closeModal);
-  $("#modal-backdrop").addEventListener("click", (e) => {
-    if (e.target === $("#modal-backdrop")) closeModal();
-  });
+  const modalClose    = $("#modal-close");
+  const modalBackdrop = $("#modal-backdrop");
+  if (modalClose) {
+    modalClose.addEventListener("click", closeModal);
+  }
+  if (modalBackdrop) {
+    modalBackdrop.addEventListener("click", (e) => {
+      if (e.target === modalBackdrop) closeModal();
+    });
+  }
 
   // --- Dropzone: drag-and-drop a file ---
   const dz = $("#dropzone");
-  dz.addEventListener("dragover",  (e) => { e.preventDefault(); dz.classList.add("drag-over"); });
-  dz.addEventListener("dragleave", ()  => dz.classList.remove("drag-over"));
-  dz.addEventListener("drop", (e) => {
-    e.preventDefault();
-    dz.classList.remove("drag-over");
-    const file = e.dataTransfer.files[0];
-    if (!file) return;
-    const path = file.path || null;
-    if (path) {
-      state.filePath = path;
-      showFileStatus(path);
-      toast(`File selected: ${file.name}`);
-      triggerRanking();
-    } else {
-      toast("Drop is only supported inside the desktop app", "amber");
-    }
-  });
+  if (dz) {
+    dz.addEventListener("dragover",  (e) => { e.preventDefault(); dz.classList.add("drag-over"); });
+    dz.addEventListener("dragleave", ()  => dz.classList.remove("drag-over"));
+    dz.addEventListener("drop", (e) => {
+      e.preventDefault();
+      dz.classList.remove("drag-over");
+      const file = e.dataTransfer.files[0];
+      if (!file) return;
+      // Use the File object directly — upload it to Flask
+      _uploadAndRank(file);
+    });
 
-  // --- Dropzone click → open file dialog via Python ---
-  dz.addEventListener("click", async () => {
-    const a = api();
-    if (!a) { toast("Python bridge not ready", "error"); return; }
-    const path = await a.open_file_dialog();
-    if (path) {
-      state.filePath = path;
-      showFileStatus(path);
-      toast(`File selected`);
-      triggerRanking();
-    }
-  });
+    // --- Dropzone click → Flask opens a native tkinter file dialog ---
+    dz.addEventListener("click", async () => {
+      const data = await callFlask("/api/open_file_dialog", { method: "POST" });
+      if (data && data.path) {
+        state.filePath = data.path;
+        showFileStatus(data.path);
+        toast("File selected");
+        triggerRanking();
+      } else if (data && data.status === "error") {
+        toast(data.message, "error");
+      }
+    });
+  }
 
   // --- Reload Dataset button — re-ranks the currently loaded file ---
-  $("#load-all").addEventListener("click", () => {
-    if (!state.filePath || state.filePath === "__preset_100k__") {
-      toast("No file loaded yet — drop a file or use the file picker", "amber");
-      return;
-    }
-    triggerRanking();
-  });
-
+  const loadAllBtn = $("#load-all");
+  if (loadAllBtn) {
+    loadAllBtn.addEventListener("click", () => {
+      if (!state.filePath) {
+        toast("No file loaded yet — drop a file or use the file picker", "amber");
+        return;
+      }
+      triggerRanking();
+    });
+  }
 
   // --- Export CSV button ---
-  $("#export-csv").addEventListener("click", () => {
-    callPython("open_csv");
-  });
+  const exportBtn = $("#export-csv");
+  if (exportBtn) {
+    exportBtn.addEventListener("click", async () => {
+      const data = await callFlask("/api/open_csv", { method: "POST" });
+      if (data && data.status === "error") toast(data.message, "error");
+    });
+  }
+}
+
+// Upload a File object (from drag-and-drop) to Flask, then rank it
+async function _uploadAndRank(file) {
+  showProcessing(true);
+  const form = new FormData();
+  form.append("file", file);
+  try {
+    const res  = await fetch(`${FLASK_BASE}/api/upload_file`, { method: "POST", body: form });
+    const data = await res.json();
+    if (data.path) {
+      state.filePath = data.path;
+      showFileStatus(data.path);
+      toast(`File uploaded: ${file.name}`);
+      triggerRanking();
+    } else {
+      showProcessing(false);
+      toast(data.message || "Upload failed", "error");
+    }
+  } catch (e) {
+    showProcessing(false);
+    toast("Upload failed — is the Flask server running?", "error");
+  }
 }
 
 // Boot when DOM is ready
