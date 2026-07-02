@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CandidateRank · DebugDuo</title>
+  <link rel="stylesheet" href="/frontend/style.css" />
+</head> 
+
+<body>
+  <!-- Top header bar -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2 4 7v10l8 5 8-5V7l-8-5z"></path>
+          <path d="m12 22 0-10"></path>
+          <path d="m4 7 8 5 8-5"></path>
+        </svg>
+      </div>
+      <div>
+        <h1>CandidateRanker</h1>
+        <p class="subtitle"> Debug Duo</p>
+      </div>
+    </div>
+    <div class="stats" id="stats">
+      <!--   <div class="stat"><span class="num" id="stat-total">0</span><span class="lbl">Loaded</span></div>
+      <div class="stat"><span class="num amber" id="stat-filtered">0</span><span class="lbl">Honeypots</span></div>
+      <div class="stat"><span class="num emerald" id="stat-top">0</span><span class="lbl">Top Fit</span></div> -->
+      <div class="stat"><span class="num cyan" id="stat-avg">0.00</span><span class="lbl">Avg Score</span></div>
+    </div>
+  </header>
+
+  <!-- Main two-column layout -->
+  <main class="layout">
+    <!-- Left config panel -->
+    <aside class="sidebar">
+      <section class="card">
+        <h2 class="card-title">
+          <span class="dot dot-emerald"></span>
+          Data Source
+        </h2>
+        <div class="dropzone" id="dropzone">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+          <p><strong>Drop a JSON or JSONL file</strong></p>
+          <p class="muted small">or click to browse</p>
+          <input type="file" id="file-input" accept=".json,.jsonl" hidden />
+        </div>
+
+        <!-- File status: shown after a file is selected -->
+        <div class="file-status" id="file-status" style="display:none;">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          <span id="file-name-label">—</span>
+        </div>
+
+        <!-- Processing spinner: shown while ranking is running -->
+        <div class="processing-row" id="processing-row" style="display:none;">
+          <div class="spinner"></div>
+          <span class="muted small" id="processing-label">Ranking candidates…</span>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-ghost" id="load-all"> Reload Dataset</button>
+        </div>
+
+      </section>
+
+
+
+      <section class="card">
+        <!--     <h2 class="card-title">
+          <span class="dot dot-emerald"></span>
+          Export
+        </h2> -->
+        <button class="btn btn-primary btn-full" id="export-csv">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+          Open CSV File
+        </button>
+        <p class="muted small" id="export-info">Saved automatically in output/</p>
+      </section>
+    </aside>
+
+    <!-- Right results panel -->
+    <section class="results">
+      <div class="results-header">
+        <h2>Ranked Candidates</h2>
+        <div class="sort-info">
+          <span class="badge badge-emerald" id="top-score-badge">Top: 0.000</span>
+          <span class="badge" id="result-count">0 results</span>
+        </div>
+      </div>
+      <div class="results-list" id="results-list">
+        <div class="empty-state">
+          <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          <h3>No candidates loaded</h3>
+          <p>Click <strong>Reload Dataset</strong> in the sidebar, or drop your own JSON/JSONL file to get started.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Candidate detail modal -->
+  <div class="modal-backdrop" id="modal-backdrop">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modal-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="modal-body" id="modal-body">
+        <!-- populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast notifications -->
+  <div class="toast-container" id="toast-container"></div>
+
+ <script src="/frontend/app.js"></script> 
+</body>
+
+</html>

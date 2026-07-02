@@ -21,11 +21,11 @@ import webview
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-from batch import create_batches
-from ranker import process_batch, merge_results
-from output_writer import write_output
-from honeypot_filter import detect_honeypots, is_honeypot
-from rule_based_judge import generate_explanations
+from backend.batch import create_batches
+from backend.ranker import process_batch, merge_results
+from backend.output_writer import write_output
+from backend.honeypot_filter import detect_honeypots, is_honeypot
+from backend.rule_based_judge import generate_explanations
 
 # ── Paths ────────────────────────────────────────────────────────────────────
 BASE_DIR = Path(__file__).resolve().parent
@@ -57,7 +57,7 @@ CORS(app)  # allow the webview origin to call localhost:5000
 
 @app.route("/")
 def index():
-    return app.send_static_file("index.html")
+    return app.send_static_file("frontend/index.html")
 
 
 # Module-level state (single-user desktop app — no session needed)
@@ -253,7 +253,8 @@ if __name__ == "__main__":
         "CandidateRanker",
         "http://127.0.0.1:5000/",   # serve index.html from Flask, or keep "index.html"
         width=1280, height=820, min_size=(900, 600),
+
     )
 
     # webview.start() must run on the main thread
-    webview.start(debug=True)
+    webview.start()

@@ -969,3 +969,327 @@ ModuleNotFoundError: No module named 'gi'
 2026-06-27 01:07:51,436 [INFO] 127.0.0.1 - - [27/Jun/2026 01:07:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
 2026-06-27 01:07:51,440 [DEBUG] _pywebviewready event fired
 2026-06-27 01:07:51,442 [DEBUG] loaded event fired
+2026-07-02 01:33:36,700 [INFO] Flask server started on http://127.0.0.1:5000
+2026-07-02 01:35:58,832 [INFO] Flask server started on http://127.0.0.1:5000
+2026-07-02 01:35:58,838 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-02 01:35:58,838 [INFO] [33mPress CTRL+C to quit[0m
+2026-07-02 01:35:58,842 [ERROR] GTK cannot be loaded
+Traceback (most recent call last):
+  File "/media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/guilib.py", line 39, in import_gtk
+    import webview.platforms.gtk as guilib
+  File "/media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/platforms/gtk.py", line 28, in <module>
+    import gi  # noqa: E402
+    ^^^^^^^^^
+ModuleNotFoundError: No module named 'gi'
+2026-07-02 01:35:59,178 [DEBUG] Using Qt 6.11.0
+2026-07-02 01:35:59,952 [INFO] 127.0.0.1 - - [02/Jul/2026 01:35:59] "GET / HTTP/1.1" 200 -
+2026-07-02 01:36:00,009 [INFO] 127.0.0.1 - - [02/Jul/2026 01:36:00] "GET /style.css HTTP/1.1" 200 -
+2026-07-02 01:36:00,009 [INFO] 127.0.0.1 - - [02/Jul/2026 01:36:00] "GET /app.js HTTP/1.1" 200 -
+2026-07-02 01:36:00,691 [DEBUG] before_load event fired. injecting pywebview object
+2026-07-02 01:36:00,692 [DEBUG] Loading JS files from /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/js
+2026-07-02 01:36:00,784 [INFO] 127.0.0.1 - - [02/Jul/2026 01:36:00] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-07-02 01:36:00,788 [DEBUG] _pywebviewready event fired
+2026-07-02 01:36:00,790 [DEBUG] loaded event fired
+2026-07-02 01:37:04,849 [INFO] Flask server started on http://127.0.0.1:5000
+2026-07-02 01:37:04,856 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-02 01:37:04,856 [INFO] [33mPress CTRL+C to quit[0m
+2026-07-02 01:37:04,857 [ERROR] GTK cannot be loaded
+Traceback (most recent call last):
+  File "/media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/guilib.py", line 39, in import_gtk
+    import webview.platforms.gtk as guilib
+  File "/media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/platforms/gtk.py", line 28, in <module>
+    import gi  # noqa: E402
+    ^^^^^^^^^
+ModuleNotFoundError: No module named 'gi'
+2026-07-02 01:37:05,078 [DEBUG] Using Qt 6.11.0
+2026-07-02 01:37:05,491 [INFO] 127.0.0.1 - - [02/Jul/2026 01:37:05] "GET / HTTP/1.1" 200 -
+2026-07-02 01:37:05,503 [INFO] 127.0.0.1 - - [02/Jul/2026 01:37:05] "GET /style.css HTTP/1.1" 200 -
+2026-07-02 01:37:05,503 [INFO] 127.0.0.1 - - [02/Jul/2026 01:37:05] "GET /app.js HTTP/1.1" 200 -
+2026-07-02 01:37:05,873 [DEBUG] before_load event fired. injecting pywebview object
+2026-07-02 01:37:05,874 [DEBUG] Loading JS files from /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/js
+2026-07-02 01:37:05,937 [INFO] 127.0.0.1 - - [02/Jul/2026 01:37:05] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-07-02 01:37:05,940 [DEBUG] _pywebviewready event fired
+2026-07-02 01:37:05,944 [DEBUG] loaded event fired
+2026-07-02 01:38:09,757 [INFO] Flask server started on http://127.0.0.1:5000
+2026-07-02 01:38:09,763 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-02 01:38:09,764 [INFO] [33mPress CTRL+C to quit[0m
+2026-07-02 01:38:09,765 [ERROR] GTK cannot be loaded
+Traceback (most recent call last):
+  File "/media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/guilib.py", line 39, in import_gtk
+    import webview.platforms.gtk as guilib
+  File "/media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/platforms/gtk.py", line 28, in <module>
+    import gi  # noqa: E402
+    ^^^^^^^^^
+ModuleNotFoundError: No module named 'gi'
+2026-07-02 01:38:09,976 [DEBUG] Using Qt 6.11.0
+2026-07-02 01:38:10,361 [INFO] 127.0.0.1 - - [02/Jul/2026 01:38:10] "GET / HTTP/1.1" 200 -
+2026-07-02 01:38:10,405 [INFO] 127.0.0.1 - - [02/Jul/2026 01:38:10] "GET /style.css HTTP/1.1" 200 -
+2026-07-02 01:38:10,405 [INFO] 127.0.0.1 - - [02/Jul/2026 01:38:10] "GET /app.js HTTP/1.1" 200 -
+2026-07-02 01:38:10,656 [DEBUG] before_load event fired. injecting pywebview object
+2026-07-02 01:38:10,658 [DEBUG] Loading JS files from /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/js
+2026-07-02 01:38:10,693 [INFO] 127.0.0.1 - - [02/Jul/2026 01:38:10] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-07-02 01:38:10,694 [DEBUG] _pywebviewready event fired
+2026-07-02 01:38:10,702 [DEBUG] loaded event fired
+2026-07-02 01:40:10,647 [INFO] Flask server started on http://127.0.0.1:5000
+2026-07-02 01:40:10,652 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-02 01:40:10,652 [INFO] [33mPress CTRL+C to quit[0m
+2026-07-02 01:40:10,655 [ERROR] GTK cannot be loaded
+Traceback (most recent call last):
+  File "/media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/guilib.py", line 39, in import_gtk
+    import webview.platforms.gtk as guilib
+  File "/media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/platforms/gtk.py", line 28, in <module>
+    import gi  # noqa: E402
+    ^^^^^^^^^
+ModuleNotFoundError: No module named 'gi'
+2026-07-02 01:40:10,866 [DEBUG] Using Qt 6.11.0
+2026-07-02 01:40:11,273 [INFO] 127.0.0.1 - - [02/Jul/2026 01:40:11] "GET / HTTP/1.1" 200 -
+2026-07-02 01:40:11,313 [INFO] 127.0.0.1 - - [02/Jul/2026 01:40:11] "GET /style.css HTTP/1.1" 200 -
+2026-07-02 01:40:11,314 [INFO] 127.0.0.1 - - [02/Jul/2026 01:40:11] "GET /app.js HTTP/1.1" 200 -
+2026-07-02 01:40:11,865 [DEBUG] before_load event fired. injecting pywebview object
+2026-07-02 01:40:11,867 [DEBUG] Loading JS files from /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/js
+2026-07-02 01:40:11,906 [INFO] 127.0.0.1 - - [02/Jul/2026 01:40:11] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-07-02 01:40:11,908 [DEBUG] _pywebviewready event fired
+2026-07-02 01:40:11,911 [DEBUG] loaded event fired
+2026-07-02 01:40:18,786 [INFO] 127.0.0.1 - - [02/Jul/2026 01:40:18] "[33mPOST /api/open_csv HTTP/1.1[0m" 404 -
+2026-07-02 01:40:33,850 [INFO] 127.0.0.1 - - [02/Jul/2026 01:40:33] "POST /api/open_file_dialog HTTP/1.1" 200 -
+2026-07-02 01:40:33,890 [INFO] Ranking started — /media/janmejay/84BAC559BAC547FE1/Hackathon/H2S/Candidate-Ranker/Main/temp/candidates.jsonl
+2026-07-02 01:40:48,899 [INFO] Honeypots removed: 18 → 100 clean candidates
+2026-07-02 01:40:48,899 [INFO] Generating reasons for 100 candidates...
+2026-07-02 01:40:48,900 [INFO] Generated reasons for 20/100 candidates
+2026-07-02 01:40:48,901 [INFO] Generated reasons for 40/100 candidates
+2026-07-02 01:40:48,902 [INFO] Generated reasons for 60/100 candidates
+2026-07-02 01:40:48,903 [INFO] Generated reasons for 80/100 candidates
+2026-07-02 01:40:48,904 [INFO] Generated reasons for 100/100 candidates
+2026-07-02 01:40:48,904 [INFO] Completed generating reasons for all 100 candidates
+2026-07-02 01:40:48,904 [INFO] Reasons generated successfully
+2026-07-02 01:40:48,908 [INFO] Saved top 100 to /media/janmejay/84BAC559BAC547FE1/Hackathon/H2S/Candidate-Ranker/Main/output/top100_20260702_014048.csv
+2026-07-02 01:40:49,696 [INFO] 127.0.0.1 - - [02/Jul/2026 01:40:49] "POST /api/start_ranking HTTP/1.1" 200 -
+2026-07-02 01:40:52,992 [INFO] 127.0.0.1 - - [02/Jul/2026 01:40:52] "POST /api/open_csv HTTP/1.1" 200 -
+2026-07-02 01:41:35,791 [INFO] Flask server started on http://127.0.0.1:5000
+2026-07-02 01:41:35,799 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-02 01:41:35,800 [INFO] [33mPress CTRL+C to quit[0m
+2026-07-02 01:41:35,801 [ERROR] GTK cannot be loaded
+Traceback (most recent call last):
+  File "/media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/guilib.py", line 39, in import_gtk
+    import webview.platforms.gtk as guilib
+  File "/media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/platforms/gtk.py", line 28, in <module>
+    import gi  # noqa: E402
+    ^^^^^^^^^
+ModuleNotFoundError: No module named 'gi'
+2026-07-02 01:41:36,045 [DEBUG] Using Qt 6.11.0
+2026-07-02 01:41:36,438 [INFO] 127.0.0.1 - - [02/Jul/2026 01:41:36] "GET / HTTP/1.1" 200 -
+2026-07-02 01:41:36,482 [INFO] 127.0.0.1 - - [02/Jul/2026 01:41:36] "GET /style.css HTTP/1.1" 200 -
+2026-07-02 01:41:36,482 [INFO] 127.0.0.1 - - [02/Jul/2026 01:41:36] "GET /app.js HTTP/1.1" 200 -
+2026-07-02 01:41:36,926 [DEBUG] before_load event fired. injecting pywebview object
+2026-07-02 01:41:36,928 [DEBUG] Loading JS files from /media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/js
+2026-07-02 01:41:36,968 [INFO] 127.0.0.1 - - [02/Jul/2026 01:41:36] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-07-02 01:41:36,969 [DEBUG] _pywebviewready event fired
+2026-07-02 01:41:36,971 [DEBUG] loaded event fired
+2026-07-02 01:55:18,927 [INFO] Flask server started on http://127.0.0.1:5000
+2026-07-02 01:55:18,932 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-02 01:55:18,932 [INFO] [33mPress CTRL+C to quit[0m
+2026-07-02 01:55:18,933 [ERROR] GTK cannot be loaded
+Traceback (most recent call last):
+  File "/media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/guilib.py", line 39, in import_gtk
+    import webview.platforms.gtk as guilib
+  File "/media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/platforms/gtk.py", line 28, in <module>
+    import gi  # noqa: E402
+    ^^^^^^^^^
+ModuleNotFoundError: No module named 'gi'
+2026-07-02 01:55:19,490 [INFO] 127.0.0.1 - - [02/Jul/2026 01:55:19] "GET / HTTP/1.1" 200 -
+2026-07-02 01:55:19,532 [INFO] 127.0.0.1 - - [02/Jul/2026 01:55:19] "GET /style.css HTTP/1.1" 200 -
+2026-07-02 01:55:19,532 [INFO] 127.0.0.1 - - [02/Jul/2026 01:55:19] "GET /app.js HTTP/1.1" 200 -
+2026-07-02 01:55:19,763 [INFO] 127.0.0.1 - - [02/Jul/2026 01:55:19] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-07-02 01:55:37,539 [INFO] 127.0.0.1 - - [02/Jul/2026 01:55:37] "POST /api/open_file_dialog HTTP/1.1" 200 -
+2026-07-02 01:55:37,545 [INFO] Ranking started — /media/janmejay/84BAC559BAC547FE1/Hackathon/H2S/Candidate-Ranker/Main/temp/candidates.jsonl
+2026-07-02 01:55:50,210 [INFO] Honeypots removed: 18 → 100 clean candidates
+2026-07-02 01:55:50,210 [INFO] Generating reasons for 100 candidates...
+2026-07-02 01:55:50,211 [INFO] Generated reasons for 20/100 candidates
+2026-07-02 01:55:50,212 [INFO] Generated reasons for 40/100 candidates
+2026-07-02 01:55:50,213 [INFO] Generated reasons for 60/100 candidates
+2026-07-02 01:55:50,214 [INFO] Generated reasons for 80/100 candidates
+2026-07-02 01:55:50,214 [INFO] Generated reasons for 100/100 candidates
+2026-07-02 01:55:50,214 [INFO] Completed generating reasons for all 100 candidates
+2026-07-02 01:55:50,215 [INFO] Reasons generated successfully
+2026-07-02 01:55:50,216 [INFO] Saved top 100 to /media/janmejay/84BAC559BAC547FE1/Hackathon/H2S/Candidate-Ranker/Main/output/top100_20260702_015550.csv
+2026-07-02 01:55:50,967 [INFO] 127.0.0.1 - - [02/Jul/2026 01:55:50] "POST /api/start_ranking HTTP/1.1" 200 -
+2026-07-02 01:55:56,465 [INFO] 127.0.0.1 - - [02/Jul/2026 01:55:56] "POST /api/open_csv HTTP/1.1" 200 -
+2026-07-02 01:58:10,915 [INFO] Flask server started on http://127.0.0.1:5000
+2026-07-02 01:58:10,919 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-02 01:58:10,920 [INFO] [33mPress CTRL+C to quit[0m
+2026-07-02 01:58:10,921 [ERROR] GTK cannot be loaded
+Traceback (most recent call last):
+  File "/media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/guilib.py", line 39, in import_gtk
+    import webview.platforms.gtk as guilib
+  File "/media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/platforms/gtk.py", line 28, in <module>
+    import gi  # noqa: E402
+    ^^^^^^^^^
+ModuleNotFoundError: No module named 'gi'
+2026-07-02 01:58:11,501 [INFO] 127.0.0.1 - - [02/Jul/2026 01:58:11] "GET / HTTP/1.1" 200 -
+2026-07-02 01:58:11,537 [INFO] 127.0.0.1 - - [02/Jul/2026 01:58:11] "[33mGET /style.css HTTP/1.1[0m" 404 -
+2026-07-02 01:58:11,538 [INFO] 127.0.0.1 - - [02/Jul/2026 01:58:11] "[33mGET /app.js HTTP/1.1[0m" 404 -
+2026-07-02 01:58:11,795 [INFO] 127.0.0.1 - - [02/Jul/2026 01:58:11] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-07-02 01:58:58,080 [INFO] Flask server started on http://127.0.0.1:5000
+2026-07-02 01:58:58,084 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-02 01:58:58,085 [INFO] [33mPress CTRL+C to quit[0m
+2026-07-02 01:58:58,088 [ERROR] GTK cannot be loaded
+Traceback (most recent call last):
+  File "/media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/guilib.py", line 39, in import_gtk
+    import webview.platforms.gtk as guilib
+  File "/media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/platforms/gtk.py", line 28, in <module>
+    import gi  # noqa: E402
+    ^^^^^^^^^
+ModuleNotFoundError: No module named 'gi'
+2026-07-02 01:58:58,648 [INFO] 127.0.0.1 - - [02/Jul/2026 01:58:58] "GET / HTTP/1.1" 200 -
+2026-07-02 01:58:58,690 [INFO] 127.0.0.1 - - [02/Jul/2026 01:58:58] "GET /frontend/style.css HTTP/1.1" 200 -
+2026-07-02 01:58:58,690 [INFO] 127.0.0.1 - - [02/Jul/2026 01:58:58] "GET /frontend/app.js HTTP/1.1" 200 -
+2026-07-02 01:58:59,039 [INFO] 127.0.0.1 - - [02/Jul/2026 01:58:59] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-07-02 01:59:11,591 [INFO] 127.0.0.1 - - [02/Jul/2026 01:59:11] "POST /api/open_file_dialog HTTP/1.1" 200 -
+2026-07-02 01:59:11,597 [INFO] Ranking started — /media/janmejay/84BAC559BAC547FE1/Hackathon/H2S/Candidate-Ranker/Main/temp/candidates.jsonl
+2026-07-02 01:59:24,598 [INFO] Honeypots removed: 18 → 100 clean candidates
+2026-07-02 01:59:24,598 [INFO] Generating reasons for 100 candidates...
+2026-07-02 01:59:24,599 [INFO] Generated reasons for 20/100 candidates
+2026-07-02 01:59:24,600 [INFO] Generated reasons for 40/100 candidates
+2026-07-02 01:59:24,601 [INFO] Generated reasons for 60/100 candidates
+2026-07-02 01:59:24,602 [INFO] Generated reasons for 80/100 candidates
+2026-07-02 01:59:24,603 [INFO] Generated reasons for 100/100 candidates
+2026-07-02 01:59:24,603 [INFO] Completed generating reasons for all 100 candidates
+2026-07-02 01:59:24,603 [INFO] Reasons generated successfully
+2026-07-02 01:59:24,605 [INFO] Saved top 100 to /media/janmejay/84BAC559BAC547FE1/Hackathon/H2S/Candidate-Ranker/Main/output/top100_20260702_015924.csv
+2026-07-02 01:59:25,436 [INFO] 127.0.0.1 - - [02/Jul/2026 01:59:25] "POST /api/start_ranking HTTP/1.1" 200 -
+2026-07-02 01:59:28,471 [INFO] 127.0.0.1 - - [02/Jul/2026 01:59:28] "POST /api/open_csv HTTP/1.1" 200 -
+2026-07-02 02:04:38,759 [INFO] Flask server started on http://127.0.0.1:5000
+2026-07-02 02:04:38,946 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-02 02:04:38,946 [INFO] [33mPress CTRL+C to quit[0m
+2026-07-02 02:05:52,312 [INFO] Flask server started on http://127.0.0.1:5000
+2026-07-02 02:05:52,416 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-02 02:05:52,416 [INFO] [33mPress CTRL+C to quit[0m
+2026-07-02 02:09:43,839 [INFO] Flask server started on http://127.0.0.1:5000
+2026-07-02 02:09:43,957 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-02 02:09:43,957 [INFO] [33mPress CTRL+C to quit[0m
+2026-07-02 02:12:47,517 [INFO] Flask server started on http://127.0.0.1:5000
+2026-07-02 02:12:47,637 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-02 02:12:47,637 [INFO] [33mPress CTRL+C to quit[0m
+2026-07-02 02:12:49,858 [INFO] 127.0.0.1 - - [02/Jul/2026 02:12:49] "GET / HTTP/1.1" 200 -
+2026-07-02 02:12:49,901 [INFO] 127.0.0.1 - - [02/Jul/2026 02:12:49] "GET /frontend/style.css HTTP/1.1" 200 -
+2026-07-02 02:12:49,905 [INFO] 127.0.0.1 - - [02/Jul/2026 02:12:49] "GET /frontend/app.js HTTP/1.1" 200 -
+2026-07-02 02:12:50,325 [INFO] 127.0.0.1 - - [02/Jul/2026 02:12:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-07-02 02:13:19,312 [INFO] Flask server started on http://127.0.0.1:5000
+2026-07-02 02:13:19,414 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-02 02:13:19,415 [INFO] [33mPress CTRL+C to quit[0m
+2026-07-02 02:13:21,080 [INFO] 127.0.0.1 - - [02/Jul/2026 02:13:21] "GET / HTTP/1.1" 200 -
+2026-07-02 02:13:21,134 [INFO] 127.0.0.1 - - [02/Jul/2026 02:13:21] "GET /frontend/style.css HTTP/1.1" 200 -
+2026-07-02 02:13:21,139 [INFO] 127.0.0.1 - - [02/Jul/2026 02:13:21] "GET /frontend/app.js HTTP/1.1" 200 -
+2026-07-02 02:13:21,627 [INFO] 127.0.0.1 - - [02/Jul/2026 02:13:21] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-07-02 02:13:29,423 [INFO] 127.0.0.1 - - [02/Jul/2026 02:13:29] "POST /api/open_file_dialog HTTP/1.1" 200 -
+2026-07-02 02:13:29,434 [INFO] Ranking started � D:/Hackathon/test/Hackathon_Dump1/temp/candidates.jsonl
+2026-07-02 02:13:50,124 [INFO] Generating reasons for 100 candidates...
+2026-07-02 02:13:50,126 [INFO] Generated reasons for 20/100 candidates
+2026-07-02 02:13:50,128 [INFO] Generated reasons for 40/100 candidates
+2026-07-02 02:13:50,130 [INFO] Generated reasons for 60/100 candidates
+2026-07-02 02:13:50,132 [INFO] Generated reasons for 80/100 candidates
+2026-07-02 02:13:50,133 [INFO] Generated reasons for 100/100 candidates
+2026-07-02 02:13:50,133 [INFO] Completed generating reasons for all 100 candidates
+2026-07-02 02:13:50,133 [INFO] Reasons generated successfully
+2026-07-02 02:13:50,137 [INFO] Saved top 100 to D:\Hackathon\H2S\Candidate-Ranker\Main\output\top100_20260702_021350.csv
+2026-07-02 02:13:51,171 [INFO] 127.0.0.1 - - [02/Jul/2026 02:13:51] "POST /api/start_ranking HTTP/1.1" 200 -
+2026-07-02 02:13:58,411 [INFO] 127.0.0.1 - - [02/Jul/2026 02:13:58] "POST /api/open_csv HTTP/1.1" 200 -
+2026-07-02 02:14:18,887 [INFO] Flask server started on http://127.0.0.1:5000
+2026-07-02 02:14:18,987 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-02 02:14:18,987 [INFO] [33mPress CTRL+C to quit[0m
+2026-07-02 02:14:20,753 [INFO] 127.0.0.1 - - [02/Jul/2026 02:14:20] "GET / HTTP/1.1" 200 -
+2026-07-02 02:14:20,774 [INFO] 127.0.0.1 - - [02/Jul/2026 02:14:20] "GET /frontend/style.css HTTP/1.1" 200 -
+2026-07-02 02:14:20,778 [INFO] 127.0.0.1 - - [02/Jul/2026 02:14:20] "GET /frontend/app.js HTTP/1.1" 200 -
+2026-07-02 02:14:21,197 [INFO] 127.0.0.1 - - [02/Jul/2026 02:14:21] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-07-02 02:19:21,559 [INFO] Flask server started on http://127.0.0.1:5000
+2026-07-02 02:19:21,663 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-02 02:19:21,663 [INFO] [33mPress CTRL+C to quit[0m
+2026-07-02 02:19:23,436 [INFO] 127.0.0.1 - - [02/Jul/2026 02:19:23] "GET / HTTP/1.1" 200 -
+2026-07-02 02:19:23,484 [INFO] 127.0.0.1 - - [02/Jul/2026 02:19:23] "GET /frontend/style.css HTTP/1.1" 200 -
+2026-07-02 02:19:23,484 [INFO] 127.0.0.1 - - [02/Jul/2026 02:19:23] "GET /frontend/app.js HTTP/1.1" 200 -
+2026-07-02 02:19:23,904 [INFO] 127.0.0.1 - - [02/Jul/2026 02:19:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-07-02 02:19:30,201 [INFO] 127.0.0.1 - - [02/Jul/2026 02:19:30] "POST /api/open_file_dialog HTTP/1.1" 200 -
+2026-07-02 02:19:30,210 [INFO] Ranking started � D:/Hackathon/test/Hackathon_Dump1/temp/candidates.jsonl
+2026-07-02 02:19:51,332 [INFO] Generating reasons for 100 candidates...
+2026-07-02 02:19:51,335 [INFO] Generated reasons for 20/100 candidates
+2026-07-02 02:19:51,339 [INFO] Generated reasons for 40/100 candidates
+2026-07-02 02:19:51,347 [INFO] Generated reasons for 60/100 candidates
+2026-07-02 02:19:51,350 [INFO] Generated reasons for 80/100 candidates
+2026-07-02 02:19:51,353 [INFO] Generated reasons for 100/100 candidates
+2026-07-02 02:19:51,354 [INFO] Completed generating reasons for all 100 candidates
+2026-07-02 02:19:51,355 [INFO] Reasons generated successfully
+2026-07-02 02:19:51,363 [INFO] Saved top 100 to D:\Hackathon\H2S\Candidate-Ranker\Main\output\top100_20260702_021951.csv
+2026-07-02 02:19:52,384 [INFO] 127.0.0.1 - - [02/Jul/2026 02:19:52] "POST /api/start_ranking HTTP/1.1" 200 -
+2026-07-02 02:19:55,646 [INFO] 127.0.0.1 - - [02/Jul/2026 02:19:55] "POST /api/open_csv HTTP/1.1" 200 -
+2026-07-02 02:48:52,016 [INFO] Flask server started on http://127.0.0.1:5000
+2026-07-02 02:48:52,024 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-02 02:48:52,024 [INFO] [33mPress CTRL+C to quit[0m
+2026-07-02 02:48:52,026 [ERROR] GTK cannot be loaded
+Traceback (most recent call last):
+  File "/media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/guilib.py", line 39, in import_gtk
+    import webview.platforms.gtk as guilib
+  File "/media/janmejay/84BAC559BAC547FE1/Hackathon/test/Hackathon_Dump1/.venv3.13/lib/python3.13/site-packages/webview/platforms/gtk.py", line 28, in <module>
+    import gi  # noqa: E402
+    ^^^^^^^^^
+ModuleNotFoundError: No module named 'gi'
+2026-07-02 02:48:52,957 [INFO] 127.0.0.1 - - [02/Jul/2026 02:48:52] "GET / HTTP/1.1" 200 -
+2026-07-02 02:48:53,027 [INFO] 127.0.0.1 - - [02/Jul/2026 02:48:53] "GET /frontend/style.css HTTP/1.1" 200 -
+2026-07-02 02:48:53,027 [INFO] 127.0.0.1 - - [02/Jul/2026 02:48:53] "GET /frontend/app.js HTTP/1.1" 200 -
+2026-07-02 02:48:53,170 [INFO] 127.0.0.1 - - [02/Jul/2026 02:48:53] "GET /frontend/fonts/Inter-VariableFont_opsz,wght.ttf HTTP/1.1" 200 -
+2026-07-02 02:48:53,170 [INFO] 127.0.0.1 - - [02/Jul/2026 02:48:53] "GET /frontend/fonts/JetBrainsMono-VariableFont_wght.ttf HTTP/1.1" 200 -
+2026-07-02 02:48:53,262 [INFO] 127.0.0.1 - - [02/Jul/2026 02:48:53] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-07-02 02:49:46,479 [INFO] 127.0.0.1 - - [02/Jul/2026 02:49:46] "GET / HTTP/1.1" 200 -
+2026-07-02 02:49:46,534 [INFO] 127.0.0.1 - - [02/Jul/2026 02:49:46] "GET /frontend/style.css HTTP/1.1" 200 -
+2026-07-02 02:49:46,534 [INFO] 127.0.0.1 - - [02/Jul/2026 02:49:46] "GET /frontend/app.js HTTP/1.1" 200 -
+2026-07-02 02:49:46,548 [INFO] 127.0.0.1 - - [02/Jul/2026 02:49:46] "GET /frontend/fonts/Inter-VariableFont_opsz,wght.ttf HTTP/1.1" 200 -
+2026-07-02 02:49:46,548 [INFO] 127.0.0.1 - - [02/Jul/2026 02:49:46] "GET /frontend/fonts/JetBrainsMono-VariableFont_wght.ttf HTTP/1.1" 200 -
+2026-07-02 02:49:46,627 [INFO] 127.0.0.1 - - [02/Jul/2026 02:49:46] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-07-02 02:53:34,004 [INFO] Flask server started on http://127.0.0.1:5000
+2026-07-02 02:53:34,077 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-02 02:53:34,078 [INFO] [33mPress CTRL+C to quit[0m
+2026-07-02 02:53:35,471 [INFO] 127.0.0.1 - - [02/Jul/2026 02:53:35] "GET / HTTP/1.1" 200 -
+2026-07-02 02:53:35,493 [INFO] 127.0.0.1 - - [02/Jul/2026 02:53:35] "GET /frontend/style.css HTTP/1.1" 200 -
+2026-07-02 02:53:35,493 [INFO] 127.0.0.1 - - [02/Jul/2026 02:53:35] "GET /frontend/app.js HTTP/1.1" 200 -
+2026-07-02 02:53:35,570 [INFO] 127.0.0.1 - - [02/Jul/2026 02:53:35] "GET /frontend/fonts/Inter-VariableFont_opsz,wght.ttf HTTP/1.1" 200 -
+2026-07-02 02:53:35,571 [INFO] 127.0.0.1 - - [02/Jul/2026 02:53:35] "GET /frontend/fonts/JetBrainsMono-VariableFont_wght.ttf HTTP/1.1" 200 -
+2026-07-02 02:53:35,631 [INFO] 127.0.0.1 - - [02/Jul/2026 02:53:35] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-07-02 02:54:23,245 [INFO] Flask server started on http://127.0.0.1:5000
+2026-07-02 02:54:23,408 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-07-02 02:54:23,408 [INFO] [33mPress CTRL+C to quit[0m
+2026-07-02 02:54:25,179 [INFO] 127.0.0.1 - - [02/Jul/2026 02:54:25] "GET / HTTP/1.1" 200 -
+2026-07-02 02:54:25,200 [INFO] 127.0.0.1 - - [02/Jul/2026 02:54:25] "GET /frontend/style.css HTTP/1.1" 200 -
+2026-07-02 02:54:25,202 [INFO] 127.0.0.1 - - [02/Jul/2026 02:54:25] "GET /frontend/app.js HTTP/1.1" 200 -
+2026-07-02 02:54:25,285 [INFO] 127.0.0.1 - - [02/Jul/2026 02:54:25] "GET /frontend/fonts/Inter-VariableFont_opsz,wght.ttf HTTP/1.1" 200 -
+2026-07-02 02:54:25,286 [INFO] 127.0.0.1 - - [02/Jul/2026 02:54:25] "GET /frontend/fonts/JetBrainsMono-VariableFont_wght.ttf HTTP/1.1" 200 -
+2026-07-02 02:54:25,389 [INFO] 127.0.0.1 - - [02/Jul/2026 02:54:25] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-07-02 02:54:34,030 [INFO] 127.0.0.1 - - [02/Jul/2026 02:54:34] "POST /api/open_file_dialog HTTP/1.1" 200 -
+2026-07-02 02:54:34,048 [INFO] Ranking started � D:/Hackathon/test/Hackathon_Dump1/temp/candidates.jsonl
+2026-07-02 02:54:54,507 [INFO] Generating reasons for 100 candidates...
+2026-07-02 02:54:54,509 [INFO] Generated reasons for 20/100 candidates
+2026-07-02 02:54:54,511 [INFO] Generated reasons for 40/100 candidates
+2026-07-02 02:54:54,513 [INFO] Generated reasons for 60/100 candidates
+2026-07-02 02:54:54,514 [INFO] Generated reasons for 80/100 candidates
+2026-07-02 02:54:54,515 [INFO] Generated reasons for 100/100 candidates
+2026-07-02 02:54:54,516 [INFO] Completed generating reasons for all 100 candidates
+2026-07-02 02:54:54,516 [INFO] Reasons generated successfully
+2026-07-02 02:54:54,519 [INFO] Saved top 100 to D:\Hackathon\H2S\Candidate-Ranker\Main\output\top100_20260702_025454.csv
+2026-07-02 02:54:55,476 [INFO] 127.0.0.1 - - [02/Jul/2026 02:54:55] "POST /api/start_ranking HTTP/1.1" 200 -
+2026-07-02 02:55:04,769 [INFO] 127.0.0.1 - - [02/Jul/2026 02:55:04] "POST /api/open_csv HTTP/1.1" 200 -
