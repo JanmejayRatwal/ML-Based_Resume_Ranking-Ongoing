@@ -3,3 +3,167 @@ Tkinter
 sudo apt install python3-gi gir1.2-gtk-3.0
 # OR
 pip install PyQt6 PyQt6-WebEngine
+
+
+# Candidate-Ranker
+
+**Resume Ranking & Candidate Evaluation System**
+
+Candidate-Ranker is a desktop application designed to automate resume screening by evaluating candidates using a weighted multi-factor ranking algorithm. The system processes large candidate datasets efficiently using multiprocessing and generates recruiter-ready rankings with transparent score explanations.
+
+---
+
+## Features
+
+- Multi-factor candidate evaluation
+- Weighted scoring algorithm
+- Parallel processing using 4 worker processes
+- Heap-based Top-K candidate selection
+- Rule-based profile validation
+- Explainable ranking methodology
+- Recruiter-ready CSV export
+- Cross-platform desktop application (Windows & Linux)
+
+---
+
+## Technology Stack
+
+### Backend
+- Python 3.13
+- Flask
+- Multiprocessing
+- heapq
+
+### Frontend
+- HTML5
+- CSS3
+- JavaScript
+- PyWebView
+
+### Other
+- Git
+- GitHub
+- JSON
+
+---
+
+## Project Structure
+
+```
+Candidate-Ranker/
+│
+├── backend/
+│   ├── batch.py
+│   ├── candidate_loader.py
+│   ├── honeypot_filter.py
+│   ├── output_writer.py
+│   ├── ranker.py
+│   ├── rule_based_judge.py
+│   ├── score_computer.py
+│   └── __init__.py
+│
+├── frontend/
+│   ├── fonts/
+│   ├── app.js
+│   ├── index.html
+│   └── style.css
+│
+├── assets/
+├── output/
+├── main.py
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## Ranking Workflow
+
+1. Load candidate dataset
+2. Split candidates into four processing batches
+3. Execute parallel ranking using multiprocessing
+4. Compute weighted candidate scores
+5. Maintain Top-500 candidates per batch using heap-based selection
+6. Merge all batch results
+7. Generate the final Top-100 ranked candidates
+8. Export recruiter-ready CSV results
+
+---
+
+## Scoring Methodology
+
+Candidates are evaluated using six weighted factors:
+
+| Factor | Weight |
+|---------|--------|
+| Skills | 35% |
+| Experience | 20% |
+| Company Tier | 20% |
+| Behavioral Signals | 10% |
+| Notice Period | 10% |
+| Location Preference | 5% |
+
+---
+
+## Performance
+
+- Supports datasets containing **100,000+ candidates**
+- Approximately **2 minutes** execution time
+- Tested on a **16 GB RAM** consumer PC
+- CPU-only execution (No dedicated GPU required)
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/JanmejayRatwal/Candidate-Ranker.git
+```
+
+Move into the project directory:
+
+```bash
+cd Candidate-Ranker
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the application:
+
+```bash
+python main.py
+```
+
+---
+
+## Demo Video
+
+Demo Video:
+
+**[Paste your YouTube Unlisted Link Here]**
+
+---
+
+## GitHub Repository
+
+https://github.com/JanmejayRatwal/Candidate-Ranker
+
+---
+
+
+
+## Development Declaration
+
+AI development tools (ChatGPT, Google Gemini, and Claude AI) were used for coding assistance, debugging, documentation, and presentation refinement. The project architecture, implementation, testing, integration, and final validation were completed and verified by the development team.
+
+---
+
+## License
+
+This project was developed for the **Redrob AI Hackathon 2026**.

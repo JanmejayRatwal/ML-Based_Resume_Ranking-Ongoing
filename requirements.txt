@@ -8,3 +8,5 @@
 pywebview==6.2.1
 flask
 flask_cors 
+PyQt6
+PyQt6-WebEngine
