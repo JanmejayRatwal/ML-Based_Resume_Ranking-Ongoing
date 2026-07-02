@@ -107,6 +107,31 @@ Candidates are evaluated using six weighted factors:
 
 ---
 
+## Desktop Application Requirement
+
+Candidate-Ranker is a native desktop application built using **PyWebView**. It requires a local Windows or Linux environment with a supported GUI backend (GTK or Qt). Native desktop windows are **not supported in headless cloud environments such as GitHub Codespaces**, although the Flask backend can still run there.
+
+---
+
+## Linux Dependencies
+
+Install one of the following GUI backends before running the application:
+
+### GTK Backend
+```bash
+sudo apt install python3-gi gir1.2-gtk-3.0
+```
+
+### Qt Backend
+```bash
+pip install PyQt6 PyQt6-WebEngine qtpy
+```
+
+> **Note:** Candidate-Ranker is a desktop application built with PyWebView and should be executed on a local Windows or Linux machine. GitHub Codespaces and other headless cloud environments do not support native desktop windows.
+
+---
+
+
 ## Installation
 
 Clone the repository:
