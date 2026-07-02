@@ -1,7 +1,3 @@
-# main.py — Flask server replacing the pywebview JS bridge
-# Runs Flask on localhost:5000; pywebview opens index.html pointing at it.
-# File dialog uses tkinter (works independently of the JS bridge).
-
 import tempfile
 import os
 import sys
